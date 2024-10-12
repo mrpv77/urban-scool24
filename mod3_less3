@@ -1,0 +1,23 @@
+# Функция с параметрами по умолчанию:
+def print_params(a = 1, b = "Строка", c = True):
+    print(a, b, c)
+
+# с разным количеством аргументов
+print_params(a = 1,c = True)
+
+#вызов без аргументов
+print_params()
+
+# Вывод функции с другими параметрами:
+print_params(b = 25)
+print_params(c = [1, 2, 3])
+
+# Распаковка параметров:
+values_list = (True, 777, 'Audi')
+print_params(*values_list)
+values_dict = {'a': False, 'b': 'Строка', 'c': 123}
+print_params(**values_dict)
+
+# Распаковка + отдельные параметры:
+values_list_2 = [54.32, 'Строка']
+print_params(*values_list_2, 42)
