@@ -9,7 +9,7 @@ def get_multiplied_digits(number):
 
 # Исходный код:
 result = get_multiplied_digits(40203)
-result1 = get_multiplied_digits(240)
+result2 = get_multiplied_digits(240)
 # Вывод на консоль:
 print(result)
-print(result1)
+print(result2)
