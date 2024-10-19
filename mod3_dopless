@@ -1,0 +1,30 @@
+# Входные данные:
+data_structure = [
+[1, 2, 3],
+{'a': 4, 'b': 5},
+(6, {'cube': 7, 'drum': 8}),
+"Hello",
+((), [{(2, 'Urban', ('Urban2', 35))}])
+]
+
+def calculate_structure_sum(structure):
+    total = 0
+    for actual in structure:
+        if isinstance(actual, list): # Рекурсивный вызов для списков
+            total += calculate_structure_sum(actual)
+        elif isinstance(actual, dict): # Рекурсивный вызов для словарей
+            k, v = actual.keys(), actual.values()
+            total += calculate_structure_sum(k)
+            total += calculate_structure_sum(v)
+        elif isinstance(actual, tuple): # Рекурсивный вызов для кортежей
+            total += calculate_structure_sum(actual)
+        elif isinstance(actual, set): # Рекурсивный вызов для множеств
+            total += calculate_structure_sum(actual)
+        elif isinstance(actual, int): # Рекурсивный вызов для целых чисел
+            total += actual
+        elif isinstance(actual, str): # Рекурсивный вызов для строк
+            total += len(actual)
+    return total
+
+result = calculate_structure_sum(data_structure)
+print(result)
